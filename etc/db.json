@@ -1,0 +1,34 @@
+{
+  "avatar": [
+    {
+      "id": 2,
+      "name": "Randy Michaeas",
+      "imagen": 6,
+      "state": "Vivo"
+    },
+    {
+      "id": 3,
+      "name": "Tomeu Penya",
+      "imagen": 9,
+      "state": "Vivo"
+    },
+    {
+      "id": 3,
+      "name": "Tomeu Penya",
+      "imagen": 9,
+      "state": "Vivo"
+    },
+    {
+      "id": 3,
+      "name": "Tomeu Penya",
+      "imagen": 9,
+      "state": "Vivo"
+    },
+    {
+      "id": 3,
+      "name": "Tomeu Penya",
+      "imagen": 9,
+      "state": "Vivo"
+    }
+  ]
+}

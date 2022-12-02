@@ -1,0 +1,24 @@
+{
+  "name": "pc1-projectewebasincron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api": "json-server --watch db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcsancho/PC1-ProjecteWebAsincron.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcsancho/PC1-ProjecteWebAsincron/issues"
+  },
+  "homepage": "https://github.com/marcsancho/PC1-ProjecteWebAsincron#readme",
+  "devDependencies": {
+    "json-server": "^0.17.1"
+  }
+}
