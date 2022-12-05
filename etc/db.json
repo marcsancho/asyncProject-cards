@@ -1,34 +1,22 @@
 {
   "avatar": [
     {
-      "id": 2,
-      "name": "Randy Michaeas",
-      "imagen": 6,
-      "state": "Vivo"
-    },
-    {
-      "id": 3,
+      "id": 0,
       "name": "Tomeu Penya",
       "imagen": 9,
       "state": "Vivo"
     },
     {
-      "id": 3,
-      "name": "Tomeu Penya",
-      "imagen": 9,
-      "state": "Vivo"
+      "name": "Marc",
+      "imagen": "3",
+      "state": "Vivo",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "Tomeu Penya",
-      "imagen": 9,
-      "state": "Vivo"
-    },
-    {
-      "id": 3,
-      "name": "Tomeu Penya",
-      "imagen": 9,
-      "state": "Vivo"
+      "name": "Juan",
+      "imagen": "5",
+      "state": "Vivo",
+      "id": 6
     }
   ]
 }
