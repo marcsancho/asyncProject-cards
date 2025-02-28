@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "http-server ./"
+    "start": "http-server public"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/marcsancho/PC1-ProjecteWebAsincron#readme",
   "devDependencies": {
-    "json-server": "^0.17.1",
     "http-server": "^14.1.1"
   }
 }

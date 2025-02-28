@@ -1,0 +1,14 @@
+# Node modules
+/node_modules/
+
+# Editor and IDE files
+/.idea/
+/workspace.xml
+
+# HTTP Client request files
+/httpRequests/
+
+# Data sources local storage ignored files
+/dataSources/
+/dataSources.local.xml
+/package-lock.json
