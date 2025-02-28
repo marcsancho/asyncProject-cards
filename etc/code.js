@@ -1,175 +1,45 @@
-const url = "http://localhost:3000/avatar";
+let monster1 = {
+    name: "Monster A",
+    health: 100,
+    avatar: `https://robohash.org/${Math.random().toString(36).substring(2)}?set=set2`
+};
 
-const cargarAvatars = async () => {
-    try {
-        const respuesta = await fetch(url);
+let monster2 = {
+    name: "Monster B",
+    health: 100,
+    avatar: `https://robohash.org/${Math.random().toString(36).substring(2)}?set=set2`
+};
 
-        if (respuesta.status === 200) {
-            const data = await respuesta.json();
-            const container = document.getElementById("container");
-            data.forEach((avatar) => {
-                const card = document.createElement("div");
-                card.classList.add("card");
-                card.innerHTML = `
-                <img src="images/${avatar.imagen}.jpeg" alt="${avatar.name}">
-                <h3>${avatar.name}</h3>
-                <div class="info">
-                    <button class="delete" onclick="eliminarAvatar(${avatar.id})">Delete</button>
-                    <button id="state" onclick="changeState(${avatar.id})">${avatar.state}</button>
-                </div>
-            `;
-                container.appendChild(card);
-            });
-        }
-    } catch (error) {
-        console.log(error);
+const updateArena = () => {
+    document.getElementById("monster1").innerHTML = `
+    <h3>${monster1.name}</h3>
+    <img src="${monster1.avatar}" alt="${monster1.name}">
+    <p>Salud: ${monster1.health}</p>
+  `;
+    document.getElementById("monster2").innerHTML = `
+    <h3>${monster2.name}</h3>
+    <img src="${monster2.avatar}" alt="${monster2.name}">
+    <p>Salud: ${monster2.health}</p>
+  `;
+};
+
+const fightRound = () => {
+    if (monster1.health <= 0 || monster2.health <= 0) return;
+
+    const damageTo1 = Math.floor(Math.random() * 16) + 5;
+    const damageTo2 = Math.floor(Math.random() * 16) + 5;
+
+    monster1.health = Math.max(0, monster1.health - damageTo1);
+    monster2.health = Math.max(0, monster2.health - damageTo2);
+
+    updateArena();
+
+    if (monster1.health === 0 || monster2.health === 0) {
+        let winner = monster1.health > monster2.health ? monster1.name : monster2.name;
+        document.getElementById("result").innerText = `¡Winner: ${winner}!`;
+        document.getElementById("fightButton").disabled = true;
     }
-}
+};
 
-const mostrarUno = async () => {
-    try {
-        const respuesta = await fetch(url);
-
-        if (respuesta.status === 200) {
-            const data = await respuesta.json();
-            const container = document.getElementById("container1");
-            while (a = true, data.forEach((avatar) => {
-                const card = document.createElement("div");
-                card.classList.add("card");
-                card.innerHTML = `
-                <img src="images/${avatar.imagen}.jpeg" alt="${avatar.name}">
-                <h3>${avatar.name}</h3>
-                <div class="info">
-                    <button class="delete" onclick="eliminarAvatar(${avatar.id})">Delete</button>
-                    <button id="state" onclick="changeState(${avatar.id})">${avatar.state}</button>
-                </div>
-            `;
-                const name = document.getElementById("name").value;
-                console.log(name);
-                if (avatar.name == name) {
-                    container.appendChild(card);
-                    a = false;
-                };
-            }));
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-/*
-const agregarAvatar = async () => {
-    try {
-        const name = document.getElementById("nombre").value;
-        const imagen = document.getElementById("imagen").value.toString();
-        const state = "Vivo";
-        const avatar = { name, imagen, state };
-        let a = await noDuplicate(name);
-        if (a == true && name != "" && imagen != "") {
-            const respuesta = await fetch(url, {
-                method: "POST",
-                body: JSON.stringify(avatar),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            if (respuesta.status === 200) {
-                const data = await respuesta.json();
-                console.log(data);
-                const container = document.getElementById("container");
-                const card = document.createElement("div");
-                card.classList.add("card");
-                card.innerHTML = `
-                <img src="images/${data.imagen}.jpeg" alt="${data.name}">
-                <h3>${data.name}</h3>
-                <div class="info">
-                    <button class="delete" onclick="eliminarAvatar(${data.id})">Delete</button>
-                    <button id="state" onclick="changeState(${data.id})">${data.state}</button>
-                </div>
-            `;
-                container.appendChild(card);
-                cargarAvatars();
-            }
-        } else {
-            alert("Ya existe un avatar con ese nombre");
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
-*/
-
-const eliminarAvatar = async (id) => {
-    try {
-        await fetch(`${url}/${id}`, {
-            method: "DELETE",
-        });
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-const changeState = async (id) => {
-    try {
-        const respuesta = await fetch(`${url}/${id}`);
-        if (respuesta.status === 200) {
-            const data = await respuesta.json();
-            const state = data.state;
-            if (state == "Vivo") {
-                data.state = "Muerto";
-            } else {
-                data.state = "Vivo";
-            }
-            await fetch(`${url}/${id}`, {
-                method: "PUT",
-                body: JSON.stringify(data),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            console.log(data);
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-
-
-const agregarAvatar = async () => {
-    try {
-        const name = document.getElementById("nombre").value;
-        const imagen = document.getElementById("imagen").value.toString();
-        const state = "Vivo";
-        const avatar = { name, imagen, state };
-        
-        const respuesta = await fetch(url, {
-            method: "POST",
-            body: JSON.stringify(avatar),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        if (respuesta.status === 200) {
-            const data = await respuesta.json();
-            console.log(data);
-            const container = document.getElementById("container");
-            const card = document.createElement("div");
-            card.classList.add("card");
-            card.innerHTML = `
-            <img src="images/${data.imagen}.jpeg" alt="${data.name}">
-            <h3>${data.name}</h3>
-            <div class="info">
-                <button class="delete" onclick="eliminarAvatar(${data.id})">Delete</button>
-                <button id="state" onclick="changeState(${data.id})">${data.state}</button>
-            </div>
-        `;
-            container.appendChild(card);
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-
-cargarAvatars();
+document.getElementById("fightButton").addEventListener("click", fightRound);
+updateArena();

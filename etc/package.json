@@ -1,11 +1,10 @@
 {
-  "name": "pc1-projectewebasincron",
+  "name": "project-web-async",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "api": "json-server --watch db.json"
+    "start": "http-server ./"
   },
   "repository": {
     "type": "git",
@@ -19,6 +18,7 @@
   },
   "homepage": "https://github.com/marcsancho/PC1-ProjecteWebAsincron#readme",
   "devDependencies": {
-    "json-server": "^0.17.1"
+    "json-server": "^0.17.1",
+    "http-server": "^14.1.1"
   }
 }

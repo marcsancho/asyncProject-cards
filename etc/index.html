@@ -1,34 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="code.js"></script>
+    <title>Monster Fight Game</title>
     <link rel="stylesheet" href="index.css">
-
-    <title>Avatars</title>
 </head>
 <body>
-    <header>
-        <h1>Buscar Avatar</h1>
-        <form id="buscador">
-            <input type="text" id="name" placeholder="Buscar nombre...">
-            <button type="button" onclick="mostrarUno()">Buscar</button>
-        </form>
-    </header>
-    <main>
-        <div id="container1"></div>
-        <div id="container"></div>
-    </main>
-    <footer>
-        <h1>Crear Avatar</h1>
-        <form id="form">
-            <input type="text" id="nombre" required="required" placeholder="Nombre">
-            <input type="number" id="imagen" required="required" placeholder="Imagen" min="0" max="10">
-            <button type="text" id="submit" onclick="agregarAvatar()">Guardar</button>
-        </form>
-    </footer>
+<h1>Monster Fight Game</h1>
+<div id="arena">
+    <div id="monster1" class="monster"></div>
+    <div id="monster2" class="monster"></div>
+</div>
+<button id="fightButton">¡Luchar!</button>
+<div id="result"></div>
+<script src="code.js"></script>
 </body>
 </html>
